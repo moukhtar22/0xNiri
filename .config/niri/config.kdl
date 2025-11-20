@@ -232,8 +232,32 @@ window-rule {
     match app-id=r#"^org.kde.kdeconnect.handler$"#
     match app-id=r#"^thunar$"# title="^Rename*"
     match app-id=r#"^Vivado$"# title="^win0$"
-    match app-id=r#"^java$"# title="^Eclipse$"
+    match app-id=r#"^java$"#
     match app-id=r#"^Eclipse$"# title="^Eclipse IDE Launcher $"
+    match app-id=r#"^STM32CubeIDE$"# title="^STM32CubeIDE Launcher $"
+    match app-id=r#"^com-st-microxplorer-maingui-STM32CubeMX$"# title="^win0$"
+    // match app-id=r#"^Java$"# title="^Stm32cubeide$"
+    // match app-id=r#"^Java$"# title="^STM32CubeIDE $"
+    match app-id=r#"^Java$"#
+
+    open-floating true
+}
+
+window-rule {
+    match app-id=r#"^thunar$"# title="^File Operation Progress$"
+
+    baba-is-float true
+    open-floating true
+}
+
+window-rule {
+    match app-id=r#"^.*$"# title="^File Upload*"
+    match app-id=r#"^.*$"# title="^Select Folder to Upload*"
+    min-width 800
+    max-width 1176
+    min-height 900
+    max-height 900
+
     open-floating true
 }
 
@@ -255,14 +279,17 @@ window-rule {
     match app-id=r#"^zed$"#
     match app-id=r#"^jetbrains-idea$"#
     match app-id=r#"^codium$"#
-    match app-id=r#"^Vivado$"#
+    match app-id=r#"^Vivado$"# title="^Vivado 2022.2$"
     match app-id=r#"^Vitis IDE$"#
     match app-id=r#"^uv4.exe"#
     match app-id=r#"^Eclipse$"#
+    match app-id=r#"^STM32CubeIDE$"# title="^*STM32CubeIDE $"
+    match app-id=r#"^labwc$"#
     
-    open-on-workspace "1"
+    open-on-workspace "3"
     open-focused true
-    default-column-width {proportion 0.9;}
+    open-maximized true
+    // default-column-width {proportion 0.9;}
 }
 
 window-rule {
@@ -278,10 +305,10 @@ window-rule {
 
 window-rule {
     match app-id=r#"org.pwmt.zathura"#
-    match app-id=r#"org.gnome.papers"#
     match app-id=r#"com.github.johnfactotum.Foliate"#
+    match app-id=r#"^org.gnome.Papers$"#
 
-    open-on-workspace "3"
+    open-on-workspace "4"
     open-focused true
     default-column-width {proportion 0.66667;}
 }
@@ -291,6 +318,14 @@ window-rule {
     match app-id=r#"^vesktop$"#
 
     open-on-workspace "4"
+    open-focused true
+}
+
+window-rule {
+    match app-id=r#"^virt-manager$"# title=r#"^.*QEMU/KVM$"#
+
+    open-on-workspace "4"
+    open-maximized true
     open-focused true
 }
 
@@ -334,12 +369,12 @@ binds {
     Mod+I           hotkey-overlay-title="Settings: open config"                    repeat=false    { spawn "neovide" ".config/niri"; }
     Mod+Print       hotkey-overlay-title="Screen Recording: gpu-screen-recorder"    repeat=false    { spawn "gpu-screen-recorder-gtk"; }
     Mod+F1          hotkey-overlay-title="Open Text editor: neovide"                repeat=false    { spawn "neovide"; }
-    Mod+F2          hotkey-overlay-title="Open Browser: zen"                        repeat=false    { spawn "zen-browser"; }
-    Mod+F3          hotkey-overlay-title="Open File Manager: thunar"                repeat=false    { spawn "thunar"; }
-    Mod+F4          hotkey-overlay-title="Open OBS Studio: obs"                     repeat=false    { spawn "obs"; }
-    Mod+T           hotkey-overlay-title="Open a Terminal: kitty"                   repeat=false    { spawn "kitty"; }
+    Mod+F2          hotkey-overlay-title="Open Browser: zen"                        repeat=false    { spawn "nirius" "focus-or-spawn" "--app-id=zen" "zen-browser"; }
+    Mod+F3          hotkey-overlay-title="Open File Manager: thunar"                repeat=false    { spawn "nirius" "focus-or-spawn" "--app-id=thunar" "thunar"; }
+    Mod+F4          hotkey-overlay-title="Open OBS Studio: obs"                     repeat=false    { spawn "nirius" "focus-or-spawn" "--app-id=com.obsproject.Studio" "obs"; }
+    Mod+T           hotkey-overlay-title="Open a Terminal: kitty"                   repeat=false    { spawn "nirius" "focus-or-spawn" "--app-id=kitty" "kitty"; }
     Mod+O           hotkey-overlay-title="Toggle Overview Mode"                     repeat=false    { toggle-overview; }
-    Mod+M           hotkey-overlay-title="System Menu"                            repeat=false    { spawn "bash" "-c" "pkill fuzzel || system-menu"; }
+    Mod+M           hotkey-overlay-title="System Menu"                              repeat=false    { spawn "bash" "-c" "pkill fuzzel || system-menu"; }
 
     XF86Calculator          hotkey-overlay-title="Open Calculator: galculator"                          repeat=false    { spawn "galculator"; }
     XF86AudioRaiseVolume    hotkey-overlay-title="Increase Volume"              allow-when-locked=true                  { spawn "pamixer" "--allow-boost" "--set-limit" "120" "--increase" "5"; }

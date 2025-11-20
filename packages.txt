@@ -62,3 +62,4 @@ gnome-keyring
 wf-osk-git
 otf-font-awesome
 papirus-folders-catppuccin-git
+nirius

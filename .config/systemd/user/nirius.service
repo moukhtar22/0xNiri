@@ -4,5 +4,5 @@ After=graphical-session.target
 Requisite=graphical-session.target
 
 [Service]
-ExecStartPre=/bin/sleep 10
-ExecStart=/usr/bin/autotrash -d 30
+ExecStart=/usr/bin/niriusd
+Restart=on-failure
