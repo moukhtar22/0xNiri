@@ -10,7 +10,9 @@ if [[ $current_value -eq 100 ]]; then
     exit
 fi
 
-for i in {1..10}; do
-    brightnessctl set +1% -e 1 -q
-    sleep 0.02
-done
+brightnessctl set +3% -e 2 -q
+
+# for i in {1..10}; do
+#     brightnessctl set +1% -e 1 -q
+#     sleep 0.02
+# done

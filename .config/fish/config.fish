@@ -14,7 +14,7 @@ if status is-interactive
     direnv hook fish | source
 
     function nvim
-        neovide $argv & disown
+        kitty --title=["nvim"] -e nvim $argv & disown
     end
 
     function auto_activate_venv --on-variable PWD

@@ -1,71 +1,73 @@
+@import url("./mocha.css");
+
 * {
     font-family: "CommitMono Nerd Font Propo";
     font-size: 12px;
-    color: #1e1e2e;
+    color: @base;
     transition: 0.1s ease-in-out;
     font-weight: bolder;
 }
 
 /* Base bar background */
 window#waybar {
-    background-color: #1e1e2e;
+    background-color: @base;
     border-radius: 12px;
 }
 
 tooltip label {
-    color: #b4befe;
+    color: @lavender;
 }
 
 #tray menu label {
-    color: #b4befe;
+    color: @lavender;
 }
 
 /* === Individual Module Styles === */
 
 /* Clock - Sky */
 #clock {
-    background-color: #89dceb;
+    background-color: @sky;
     border-radius: 10px;
 }
 
 /* Battery - Green (normal), Yellow (warning), Red (critical) */
 #battery {
-    background-color: #a6e3a1;
+    background-color: @green;
     border-radius: 10px;
 }
 
 #battery.warning:not(.charging) {
-    background-color: #f9e2af;
+    background-color: @yellow;
 }
 
 #battery.critical:not(.charging) {
-    background-color: #f38ba8;
-    color: #1e1e2e;
+    background-color: @red;
+    color: @base;
     animation: blink 0.5s linear infinite alternate;
 }
 
 #pulseaudio {
-    background-color: #89b4fa;
+    background-color: @blue;
     border-radius: 10px;
 }
 
 #pulseaudio.muted {
-    background-color: #f38ba8;
+    background-color: @red;
 }
 
 #backlight {
-    background-color: #f9e2af;
+    background-color: @yellow;
     border-radius: 10px;
 }
 
 #workspaces {
-    background-color: #45475a;
+    background-color: @surface1;
     border-radius: 10px;
     margin: 4px 0px;
 }
 
 #workspaces button label {
-    color: #b4befe;
+    color: @lavender;
     padding: 0 4px;
 }
 
@@ -77,12 +79,12 @@ tooltip label {
 }
 
 #workspaces button.active label {
-    color: #1e1e2e;
+    color: @base;
 }
 
 #workspaces button.active,
 #workspaces button.focused {
-    background-color: #b4befe;
+    background-color: @lavender;
     border-radius: 8px;
     padding: 2 10px;
     font-weight: bold;
@@ -94,7 +96,7 @@ tooltip label {
 }
 
 #workspaces button.urgent {
-    background-color: #f38ba8;
+    background-color: @red;
 }
 
 #tray,
@@ -121,21 +123,21 @@ tooltip label {
 
 /* Tray - Flamingo */
 #tray {
-    background-color: #f2cdcd;
+    background-color: @flamingo;
     border-radius: 10px;
 }
 
 /* Custom Power - Red */
 #custom-power {
     margin-right: 3px;
-    background-color: #f38ba8;
+    background-color: @red;
     border-radius: 10px;
 }
 
 /* Custom Launcher - Peach */
 #custom-launcher {
     margin-left: 3px;
-    background-color: #fab387;
+    background-color: @peach;
     border-radius: 10px;
 }
 
@@ -147,7 +149,7 @@ tooltip label {
 
 /* Custom Notification - Mauve */
 #custom-notification {
-    background-color: #cba6f7;
+    background-color: @mauve;
     border-radius: 10px;
 }
 
@@ -160,7 +162,7 @@ tooltip label {
 
 /* Privacy - Maroon */
 #privacy {
-    background-color: #eba0ac;
+    background-color: @maroon;
     border-radius: 10px;
 }
 
@@ -172,24 +174,24 @@ tooltip label {
 }
 
 #misc {
-    background-color: #94e2d5;
+    background-color: @teal;
     border-radius: 10px;
     padding: 0 2px;
 }
 
 #privacy-item.audio-out {
-    color: #1e1e2e;
+    color: @base;
 }
 
 /* Idle Inhibitor - Rosewater */
 #idle_inhibitor {
-    background-color: #f5e0dc;
+    background-color: @rosewater;
     border-radius: 10px;
 }
 
 /* MPRIS - Sapphire */
 #mpris {
-    background-color: #74c7ec;
+    background-color: @sapphire;
     border-radius: 10px;
 }
 
@@ -226,13 +228,12 @@ tooltip label {
 #idle_inhibitor:hover,
 #mpris:hover {
     transition: all 0.2s ease-in;
-    text-shadow: 0 0 1px #1e1e2e;
-    /* filter: brightness(1.1); */
+    text-shadow: 0 0 1px @base;
 }
 
 /* Blinking critical battery */
 @keyframes blink {
     to {
-        color: #1e1e2e;
+        color: @base;
     }
 }
