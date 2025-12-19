@@ -1,6 +1,7 @@
 go
 mugshot
-zen-browser-bin
+librewolf-bin
+gvim
 neovide
 neovim
 ly
