@@ -54,6 +54,7 @@ https://github.com/user-attachments/assets/8d2dd5dd-cd29-47e0-b2bc-d6dafb082748
 ```bash
 git clone https://github.com/rickinshah/0xNiri.git ~/0xNiri
 cd ~/0xNiri
+chmod +x install.sh
 ./install.sh
 ```
 
