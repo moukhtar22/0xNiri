@@ -1,0 +1,65 @@
+* {
+    font-family: CommitMono Nerd Font Propo;
+    font-size: 17px;
+    font-weight: bold;
+    /* color: #e5e1e9; */
+    color: alpha(#2e2960, 0.8);
+    box-shadow: none;
+}
+
+window {
+    background-color: alpha(#131318, 1);
+    padding: 15px;
+}
+
+button {
+    border-radius: 14px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 32%;
+    min-width: 100px;
+    background-color: #c5c0ff;
+    color: #2e2960;
+    transition: all 0.25s ease-in-out;
+    padding: 25px;
+    margin: 10px;
+}
+
+button:active,
+button:hover {
+    background-size: 50%;
+}
+
+#lock,
+#logout,
+#suspend,
+#shutdown,
+#hibernate,
+#reboot {
+    background-color: alpha(#c5c0ff, 0.8);
+    
+}
+
+#lock {
+    background-image: image(url("assets/lock.svg"));
+}
+
+#logout {
+    background-image: image(url("assets/logout.svg"));
+}
+
+#suspend {
+    background-image: image(url("assets/suspend.svg"));
+}
+
+#hibernate {
+    background-image: image(url("assets/hibernate.svg"));
+}
+
+#shutdown {
+    background-image: image(url("assets/shutdown.svg"));
+}
+
+#reboot {
+    background-image: image(url("assets/reboot.svg"));
+}
