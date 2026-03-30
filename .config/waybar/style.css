@@ -1,73 +1,76 @@
-@import url("./mocha.css");
+@import url("./colors.css");
 
 * {
     font-family: "CommitMono Nerd Font Propo";
     font-size: 12px;
-    color: @base;
+    color: alpha(@on_surface, 0.8);
     transition: 0.1s ease-in-out;
     font-weight: bolder;
 }
 
-/* Base bar background */
 window#waybar {
-    background-color: @base;
+    background-color: @background;
     border-radius: 12px;
 }
 
 tooltip label {
-    color: @lavender;
+    color: alpha(@on_surface, 0.6);
 }
 
 #tray menu label {
-    color: @lavender;
+    color: @on_surface;
 }
 
-/* === Individual Module Styles === */
-
-/* Clock - Sky */
-#clock {
-    background-color: @sky;
+#backlight,
+#battery,
+#clock,
+#custom-launcher,
+#custom-notification,
+#custom-notification.dnd-none,
+#custom-notification.dnd-notification,
+#custom-notification.notification,
+#custom-power,
+#custom-screen-time,
+#idle_inhibitor,
+#misc,
+#mpris,
+#power-profiles-daemon,
+#privacy,
+#pulseaudio,
+#tray {
+    padding: 0px 10px;
+    margin: 4px 0px;
+    background-color: @surface_container_high;
+    color: alpha(@on_surface_variant, 0.8);
     border-radius: 10px;
 }
 
-/* Battery - Green (normal), Yellow (warning), Red (critical) */
-#battery {
-    background-color: @green;
-    border-radius: 10px;
+#custom-launcher {
+    margin-left: 4px;
+}
+
+#custom-power {
+    margin-right: 4px;
 }
 
 #battery.warning:not(.charging) {
-    background-color: @yellow;
+    color: @tertiary;
 }
 
-#battery.critical:not(.charging) {
-    background-color: @red;
-    color: @base;
-    animation: blink 0.5s linear infinite alternate;
-}
-
-#pulseaudio {
-    background-color: @blue;
-    border-radius: 10px;
-}
-
-#pulseaudio.muted {
-    background-color: @red;
-}
-
-#backlight {
-    background-color: @yellow;
-    border-radius: 10px;
+#battery.critical:not(.charging),
+#pulseaudio.muted,
+#workspaces button.urgent {
+    color: @error;
 }
 
 #workspaces {
-    background-color: @surface1;
     border-radius: 10px;
+    background-color: @surface_container_high;
     margin: 4px 0px;
 }
 
 #workspaces button label {
-    color: @lavender;
+    color: @on_surface_variant;
     padding: 0 4px;
 }
 
@@ -79,126 +82,20 @@ tooltip label {
 }
 
 #workspaces button.active label {
-    color: @base;
+    color: @on_primary;
 }
 
 #workspaces button.active,
 #workspaces button.focused {
-    background-color: @lavender;
+    background-color: @primary;
+    color: @on_primary;
     border-radius: 8px;
     padding: 2 10px;
     font-weight: bold;
-
-}
-
-#workspaces button:hover {
-    color: rgba(0, 0, 0, 0);
-}
-
-#workspaces button.urgent {
-    background-color: @red;
-}
-
-#tray,
-#custom-power,
-#battery,
-#custom-launcher,
-#custom-clock,
-#custom-notification,
-#clock,
-#backlight,
-/* #custom-clipboard, */
-/* #custom-vkeyboard, */
-#custom-notification.notification,
-#custom-notification.dnd-none,
-#custom-notification.dnd-notification,
-#custom-screen-time,
-#idle_inhibitor,
-#privacy,
-#mpris,
-#misc,
-#pulseaudio {
-    padding: 0px 10px;
-    margin: 4px 0px;
-}
-
-/* Tray - Flamingo */
-#tray {
-    background-color: @flamingo;
-    border-radius: 10px;
-}
-
-/* Custom Power - Red */
-#custom-power {
-    margin-right: 3px;
-    background-color: @red;
-    border-radius: 10px;
-}
-
-/* Custom Launcher - Peach */
-#custom-launcher {
-    margin-left: 3px;
-    background-color: @peach;
-    border-radius: 10px;
-}
-
-/* Custom Clipboard - Pink */
-/* #custom-clipboard { */
-/*     background-color: #f5c2e7; */
-/*     border-radius: 10px; */
-/* } */
-
-/* Custom Notification - Mauve */
-#custom-notification {
-    background-color: @mauve;
-    border-radius: 10px;
-}
-
-#custom-screen-time {
-    background-color: #94e2d5;
-    border-radius: 10px;
-}
-
-/* Custom VKeyboard - Teal */
-/* #custom-vkeyboard { */
-/*     background-color: #94e2d5; */
-/*     border-radius: 10px; */
-/*     font-size: 14; */
-/* } */
-
-/* Privacy - Maroon */
-#privacy {
-    background-color: @maroon;
-    border-radius: 10px;
-}
-
-#custom-vkeyboard,
-#custom-screenrecording,
-#custom-clipboard {
-    margin: 0 6px;
-    font-size: 13px;
-}
-
-#misc {
-    background-color: @teal;
-    border-radius: 10px;
-    padding: 0 2px;
 }
 
 #privacy-item.audio-out {
-    color: @base;
-}
-
-/* Idle Inhibitor - Rosewater */
-#idle_inhibitor {
-    background-color: @rosewater;
-    border-radius: 10px;
-}
-
-/* MPRIS - Sapphire */
-#mpris {
-    background-color: @sapphire;
-    border-radius: 10px;
+    color: @background;
 }
 
 /* #custom-notification.dnd-none { */
@@ -207,39 +104,28 @@ tooltip label {
 /* } */
 /**/
 
-#custom-notification.dnd-notification {
-    padding-left: 8px;
-    padding-right: 7px;
-}
-
-/**/
-/* #custom-notification.notification { */
+/* #custom-notification.dnd-notification { */
 /*     padding-left: 8px; */
 /*     padding-right: 7px; */
 /* } */
 
-/* Hover effect for all modules */
-#clock:hover,
-#battery:hover,
-#pulseaudio:hover,
 #backlight:hover,
-#tray:hover,
+#battery:hover,
+#clock:hover,
 #workspaces:hover,
-#custom-power:hover,
-#custom-launcher:hover,
 #custom-clipboard:hover,
+#custom-launcher:hover,
 #custom-notification:hover,
-#custom-vkeyboard:hover,
-#privacy:hover,
+#custom-power:hover,
+#custom-screen-time:hover,
 #idle_inhibitor:hover,
-#mpris:hover {
+#mpris:hover,
+#power-profiles-daemon:hover,
+#privacy:hover,
+#pulseaudio:hover,
+#tray:hover,
+#workspace button:hover {
+    background-color: @surface_container_highest;
+    box-shadow: 0 2px 6px alpha(@shadow, 0.3);
     transition: all 0.2s ease-in;
-    text-shadow: 0 0 1px @base;
-}
-
-/* Blinking critical battery */
-@keyframes blink {
-    to {
-        color: @base;
-    }
 }

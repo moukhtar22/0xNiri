@@ -7,7 +7,7 @@
     "margin-right": 2,
     "margin-bottom": 1,
     "reload_style_on_change": true,
-    "spacing": 11,
+    "spacing": 8,
     "exclusive": false,
     "modules-left": [
         "custom/launcher",
@@ -21,9 +21,7 @@
     "modules-right": [
         "privacy",
         "idle_inhibitor",
-        // "group/misc",
-        // "custom/clipboard",
-        // "custom/vkeyboard",
+        "power-profiles-daemon",
         "pulseaudio",
         "backlight",
         "battery",
@@ -31,34 +29,6 @@
         "tray",
         "custom/power"
     ],
-    "niri/workspaces": {
-        "format": "{icon}",
-    },
-    "mpris": {
-        "player-icons": {
-            "default": "🎵"
-        },
-        "format": "⏸ {dynamic}",
-        "format-paused": "▶ {dynamic}",
-        "format-stopped": "⏹ Stopped",
-        "interval": 1,
-        "max-length": 70
-    },
-    "idle_inhibitor": {
-        "format": "{icon}",
-        "format-icons": {
-            "activated": "󰈈",
-            "deactivated": "󰈉"
-        }
-    },
-    "tray": {
-        "spacing": 10
-    },
-    "clock": {
-        "format": "󰥔 {:%R  󰃭 %A %d}",
-        "tooltip-format": "<tt><small>{calendar}</small></tt>",
-        "interval": 60
-    },
     "backlight": {
         "tooltip": false,
         "format": "{icon} {percent}%",
@@ -84,70 +54,15 @@
         "interval": 1,
         "tooltip": true
     },
-    "pulseaudio": {
-        // "scroll-step": 1, // %, can be a float
-        "tooltip": false,
-        "format": "<span font_desc='CommitMono Nerd Font Propo 10'>{icon}</span> {volume}%",
-        "format-bluetooth": "󰂯 {volume}%",
-        "format-bluetooth-muted": "󰂲 {volume}%",
-        "format-muted": "󰝟 {volume}%",
-        "format-source": "󰍬 {volume}%",
-        "format-source-muted": "󰍭",
-        "format-icons": {
-            "headphone": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": ["󰕿", "󰖀", "󰕾"],
-        },
-        "on-click": "pamixer --toggle-mute",
-        "on-scroll-up": "pamixer --allow-boost --set-limit 150 --increase 2",
-        "on-scroll-down": "pamixer --allow-boost --set-limit 150 --decrease 2",
-        "tooltip": true,
-        "max-volume": 150
+    "clock": {
+        "format": "󰥔 {:%R  󰃭 %A %d}",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "interval": 60
     },
     "custom/launcher": {
         "format": "",
-        // "format": "",
         "on-click": "pkill fuzzel || fuzzel",
         "tooltip-format": "Launcher"
-    },
-    "custom/clipboard": {
-        "format": "󰅇",
-        "on-click": "pkill fuzzel || cliphist-fuzzel-img",
-        "tooltip-format": "Clipboard"
-    },
-    "custom/vkeyboard": {
-        "format": "󰌌",
-        "on-click": "pkill wf-osk || wf-osk --height 200 -a bottom",
-        "tooltip-format": "Virtual Keyboard"
-    },
-    "custom/screenrecording": {
-        "format": "󰻂",
-        "tooltip-format": "Screen Recording",
-        "on-click": "pkill fuzzel || screen-recording",
-        "on-click-right": "pkill -INT wf-recorder"
-    },
-    "custom/power": {
-        "format": "⏼",
-        "tooltip": false,
-        "on-click": "wlogout -c 15 -b 6 -T 350 -B 350 -L 100 -R 100"
-    },
-    "wlr/taskbar": {
-        "format": "{icon}",
-        "icon-size": 22,
-        "icon-theme": "Numix-Circle",
-        "tooltip-format": "{title}",
-        "on-click": "activate",
-        "on-click-middle": "close"
-    },
-    "custom/screen-time": {
-        "tooltip": true,
-        "format": " {text}",
-        // "exec": "niri-screen-time | grep 'time' | grep -oP '\\d+h\\s+\\d+m'",
-        "exec": "screen-time",
-        "interval": 60,
-        "return-type": "json"
     },
     "custom/notification": {
         "tooltip-format": "Notifications",
@@ -155,7 +70,7 @@
         "format-icons": {
             "notification": "󱅫",
             "none": "󰂚",
-            "dnd-notification": "󱏧<span foreground='#1e1e2e'><sup></sup></span>",
+            "dnd-notification": "󱏧",
             "dnd-none": "󱏧",
             "inhibited-notification": "󰂚<span foreground='#1e1e2e'><sup></sup></span>",
             "inhibited-none": "󰂚",
@@ -168,6 +83,38 @@
         "on-click": "swaync-client -t -sw",
         "on-click-right": "swaync-client -d -sw",
         "escape": true,
+    },
+    "custom/power": {
+        "format": "⏼",
+        "tooltip": false,
+        "on-click": "wlogout -c 15 -b 6 -T 350 -B 350 -L 100 -R 100"
+    },
+    "custom/screen-time": {
+        "tooltip": true,
+        "format": " {text}",
+        "exec": "screen-time",
+        "interval": 60,
+        "return-type": "json"
+    },
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "format-icons": {
+            "activated": "󰈈",
+            "deactivated": "󰈉"
+        }
+    },
+    "niri/workspaces": {
+        "format": "{icon}",
+    },
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+      "tooltip": true,
+      "format-icons": {
+        "default": "",
+        "performance": "",
+        "balanced": "", "power-saver": ""
+      }
     },
     "privacy": {
         "icon-spacing": 10,
@@ -202,12 +149,39 @@
             }
         ]
     },
-    "group/misc": {
-        "orientation": "horizontal",
-        "modules": [
-            "custom/clipboard",
-            "custom/vkeyboard",
-            "custom/screenrecording"
-        ]
-    }
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "tooltip": false,
+        "format": "<span font_desc='CommitMono Nerd Font Propo 10'>{icon}</span> {volume}%",
+        "format-bluetooth": "󰂯 {volume}%",
+        "format-bluetooth-muted": "󰂲 {volume}%",
+        "format-muted": "󰝟 {volume}%",
+        "format-source": "󰍬 {volume}%",
+        "format-source-muted": "󰍭",
+        "format-icons": {
+            "headphone": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["󰕿", "󰖀", "󰕾"],
+        },
+        "on-click": "pamixer --toggle-mute",
+        "on-scroll-up": "pamixer --allow-boost --set-limit 150 --increase 2",
+        "on-scroll-down": "pamixer --allow-boost --set-limit 150 --decrease 2",
+        "tooltip": true,
+        "max-volume": 150
+    },
+    "tray": {
+        "spacing": 10,
+        "icons": {
+        }
+    },
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 22,
+        "icon-theme": "Numix-Circle",
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close"
+    },
 }
