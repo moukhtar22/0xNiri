@@ -2,7 +2,7 @@
     font-family: CommitMono Nerd Font Propo;
     font-size: 17px;
     font-weight: bold;
-    color: {{colors.primary.default.hex}};
+    color: {{colors.primary_container.default.hex}};
     box-shadow: none;
 }
 
@@ -33,7 +33,7 @@ button:hover {
 #shutdown,
 #hibernate,
 #reboot {
-    background-color: {{colors.primary_container.default.hex}};
+    background-color: {{colors.primary.default.hex}};
     border:none;
 }
 

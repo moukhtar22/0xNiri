@@ -1,5 +1,10 @@
 [config]
 
+[templates.btop]
+input_path = '~/.config/matugen/templates/btop.theme'
+output_path = '~/.config/btop/themes/matugen.theme'
+post_hook = 'pkill -USR2 btop || true'
+
 [templates.waybar]
 input_path = '~/.config/matugen/templates/colors.css'
 output_path = '~/.config/waybar/colors.css'
@@ -7,6 +12,19 @@ output_path = '~/.config/waybar/colors.css'
 [templates.fuzzel]
 input_path = '~/.config/matugen/templates/fuzzel.ini'
 output_path = '~/.config/fuzzel/fuzzel.ini'
+
+[templates.gtk3]
+input_path = '~/.config/matugen/templates/gtk-colors.css'
+output_path = '~/.config/gtk-3.0/colors.css'
+post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-{{mode}}'
+
+[templates.gtk4]
+input_path = '~/.config/matugen/templates/gtk-colors.css'
+output_path = '~/.config/gtk-4.0/colors.css'
+
+[templates.gtklock]
+input_path = '~/.config/matugen/templates/colors.css'
+output_path = '~/.config/gtklock/colors.css'
 
 [templates.wlogout]
 input_path = '~/.config/matugen/templates/wlogout.css'
