@@ -40,6 +40,15 @@ button:hover {
     border: none;
 }
 
+#lock:hover,
+#logout:hover,
+#suspend:hover,
+#shutdown:hover,
+#hibernate:hover,
+#reboot:hover {
+    background-color: @on_primary;
+}
+
 #lock {
     background-image: image(url("assets/lock.svg"));
 }

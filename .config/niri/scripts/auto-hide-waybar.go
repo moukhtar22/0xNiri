@@ -99,18 +99,18 @@ func AutoToggle(conn net.Conn) {
 }
 
 func sendEvent(conn net.Conn, eventType string) []byte {
-	eventType = "\"" + eventType + "\"\n"
-	if _, err := conn.Write([]byte(eventType)); err != nil {
+	msg := fmt.Sprintf("\"%s\"\n", eventType)
+	if _, err := conn.Write([]byte(msg)); err != nil {
 		fmt.Fprintln(os.Stderr, "Write error: ", err)
 		return nil
 	}
-	buf := make([]byte, 4096)
-	n, err := conn.Read(buf)
+	reader := bufio.NewReader(conn)
+	response, err := reader.ReadBytes('\n')
 	if err != nil {
 		fmt.Fprintln(os.Stderr, "Read error: ", err)
 		return nil
 	}
-	return buf[:n]
+	return response
 }
 
 func main() {

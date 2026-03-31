@@ -109,71 +109,71 @@ recent-windows {
     }
 }
 
-layout {
-    gaps 4
-
-    always-center-single-column
-
-    center-focused-column "on-overflow"
-
-    preset-column-widths {
-        proportion 0.33333
-        proportion 0.5
-        proportion 0.66667
-        proportion 0.75
-        proportion 0.9
-    }
-
-    // preset-window-heights { }
-    default-column-width {}
-
-    focus-ring {
-        // off
-
-        width 2
-
-        active-color "#b7bdf8"
-
-        inactive-color "#505050"
-
-        // active-gradient from="#80c8ff" to="#bbddff" angle=45
-
-        // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
-    }
-
-    border {
-        off
-
-        // width 2
-        active-color "#b7bdf8"
-        inactive-color "#505050"
-
-        urgent-color "#9b0000"
-
-        // active-gradient from="#ffbb66" to="#ffc880" angle=45 relative-to="workspace-view"
-        // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
-    }
-
-    shadow {
-        // on
-        // draw-behind-window true
-
-        softness 30
-
-        spread 5
-
-        offset x=0 y=5
-
-        color "#0007"
-    }
-
-    struts {
-        // left 64
-        // right 64
-        // top 64
-        // bottom 64
-    }
-}
+// layout {
+//     gaps 4
+//
+//     always-center-single-column
+//
+//     center-focused-column "on-overflow"
+//
+//     preset-column-widths {
+//         proportion 0.33333
+//         proportion 0.5
+//         proportion 0.66667
+//         proportion 0.75
+//         proportion 0.9
+//     }
+//
+//     // preset-window-heights { }
+//     default-column-width {}
+//
+//     focus-ring {
+//         // off
+//
+//         width 2
+//
+//         active-color "#b7bdf8"
+//
+//         inactive-color "#505050"
+//
+//         // active-gradient from="#80c8ff" to="#bbddff" angle=45
+//
+//         // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
+//     }
+//
+//     border {
+//         off
+//
+//         // width 2
+//         active-color "#b7bdf8"
+//         inactive-color "#505050"
+//
+//         urgent-color "#9b0000"
+//
+//         // active-gradient from="#ffbb66" to="#ffc880" angle=45 relative-to="workspace-view"
+//         // inactive-gradient from="#505050" to="#808080" angle=45 relative-to="workspace-view"
+//     }
+//
+//     shadow {
+//         // on
+//         // draw-behind-window true
+//
+//         softness 30
+//
+//         spread 5
+//
+//         offset x=0 y=5
+//
+//         color "#0007"
+//     }
+//
+//     struts {
+//         // left 64
+//         // right 64
+//         // top 64
+//         // bottom 64
+//     }
+// }
 
 prefer-no-csd
 
@@ -276,10 +276,21 @@ window-rule {
     open-floating true
 }
 
+
 window-rule {
     match app-id=r#"^thunar$"# title="^File Operation Progress$"
 
     baba-is-float true
+    open-floating true
+}
+
+window-rule {
+    match app-id=r#"^thunar$"#
+    min-width 800
+    max-width 1176
+    min-height 600
+    max-height 600
+
     open-floating true
 }
 
@@ -563,3 +574,5 @@ binds {
     Ctrl+Alt+Delete { quit; }
     Mod+Shift+P     { power-off-monitors; }
 }
+
+include "./layout.kdl"

@@ -1,0 +1,45 @@
+layout {
+    gaps 4
+
+    always-center-single-column
+
+    center-focused-column "on-overflow"
+
+    preset-column-widths {
+        proportion 0.33333
+        proportion 0.5
+        proportion 0.66667
+        proportion 0.75
+        proportion 0.9
+    }
+
+    // preset-window-heights { }
+    default-column-width {}
+
+    focus-ring {
+        // off
+
+        width 2
+        active-color "{{colors.primary.default.hex}}"
+        inactive-color "{{colors.outline_variant.default.hex}}"
+    }
+
+    border {
+        off
+
+        // width 2
+        active-color "{{colors.primary.default.hex}}"
+        inactive-color "{{colors.outline_variant.default.hex}}"
+        urgent-color "{{colors.error.default.hex}}"
+    }
+
+    shadow {
+        // on
+        // draw-behind-window true
+
+        softness 30
+        spread 5
+        offset x=0 y=5
+        color "#0007"
+    }
+}
