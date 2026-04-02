@@ -2,9 +2,9 @@
 
 * {
     font-family: CommitMono Nerd Font Propo;
-    font-size: 17px;
+    font-size: 18px;
     font-weight: bold;
-    color: @primary;
+    color: @primary_container;
     box-shadow: none;
 }
 
@@ -46,7 +46,8 @@ button:hover {
 #shutdown:hover,
 #hibernate:hover,
 #reboot:hover {
-    background-color: @on_primary;
+    background-color: @primary;
+    font-size: 20px;
 }
 
 #lock {
